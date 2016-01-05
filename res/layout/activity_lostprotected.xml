@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView style="@style/title_center_text"
+        android:text="手机防盗"/>
+    <View style="@style/splitter_view"/>
+    <RelativeLayout style="@style/relativelayout">
+        <TextView style="@style/content_text"
+            android:layout_alignParentLeft="true"
+            android:text="安全号码："/>
+        <TextView style="@style/content_text"
+            android:id="@+id/tv_lost_safe_number"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <View style="@style/splitter_view"
+        android:background="@drawable/listview_devider"/>
+
+    <RelativeLayout style="@style/relativelayout"
+        android:gravity="center_vertical">
+            <TextView style="@style/content_text"
+                android:layout_centerVertical="true"
+                android:text="防盗保护设置"/>
+        <CheckBox style="@style/content_text"
+            android:id="@+id/cb_lost_protect_setting"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    <View style="@style/splitter_view"
+        android:background="@drawable/listview_devider"/>
+
+    <TextView style="@style/content_text"
+        android:id="@+id/tv_lost_protect_resetup"
+        android:text="重新进入设置向导"/>
+    <View style="@style/splitter_view"
+        android:background="@drawable/listview_devider"/>
+
+    <TextView style="@style/content_text"
+        android:text="手机防盗指令：\n#*location*#获取手机位置\n#*alarm*#播放报警音乐\n#*lockscreen*#远程锁屏\n#*wipedata*#清除数据"/>
+
+</LinearLayout>

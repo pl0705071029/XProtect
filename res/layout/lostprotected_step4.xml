@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView style="@style/title_text"
+        android:text="4.恭喜你，设置完成" />
+
+    <View style="@style/splitter_view"/>
+
+    <TextView style="@style/content_text"
+        android:text="强烈建议您开启防盗保护" />
+    <TextView style="@style/content_text"
+        android:text="点击激活deviceadmin\n（激活后可以远程锁屏，清除数据）"
+        android:clickable="true"
+        android:onClick="activeDeviceAdmin"/>
+    <CheckBox
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:id="@+id/cb_step4_protect"
+        android:text="防盗保护没有开启"/>
+
+    <!--显示四个步骤的第三步：居中-->
+    <LinearLayout style="@style/horizontal_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_enable_image" />
+    </LinearLayout>
+
+    <!--显示一个大图标：居中-->
+    <ImageView style="@style/center_icon_image"
+        android:src="@drawable/setup4"/>
+
+    <RelativeLayout style="@style/relativelayout">
+        <Button style="@style/prev_button" />
+        <Button style="@style/next_button"
+            android:text="设置完成"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="20dip"
+        android:layout_marginTop="5dip"
+        android:text="月结日"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dip"
+        android:text="月流量"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="70dip"
+        android:layout_height="40dip"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_marginLeft="15dip"
+        android:layout_toRightOf="@+id/textView2"
+        android:numeric="integer" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="70dip"
+        android:layout_height="40dip"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignTop="@+id/textView3"
+        android:numeric="integer" />
+
+    <ImageView
+        android:id="@+id/yes"
+        android:layout_width="35dip"
+        android:layout_height="35dip"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="10dip"
+        android:background="@color/liteblue" />
+
+    <ImageView
+        android:id="@+id/no"
+        android:layout_width="35dip"
+        android:layout_height="35dip"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignTop="@+id/yes"
+        android:layout_marginLeft="80dip"
+        android:background="@color/red" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_marginLeft="20dip"
+        android:layout_toRightOf="@+id/editText2"
+        android:text="MB"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignLeft="@+id/textView1"
+        android:text="日"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+</RelativeLayout>

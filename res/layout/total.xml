@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="220dip"
+        android:layout_alignParentTop="true" android:layout_marginTop="30dip">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="105dip"
+            android:layout_height="120dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="15dip"
+            android:src="@drawable/change" android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="月流量剩余充足" android:layout_toRightOf="@id/imageView3" android:layout_margin="20dip" android:textColor="@color/white" android:textSize="15sp" android:background="@color/liteblue"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView7"
+            android:layout_centerVertical="true"
+            android:text="本月使用：" android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView8"
+            android:layout_below="@+id/textView8"
+            android:text="本月剩余：" android:layout_marginTop="10dip" android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/alltraffic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_toRightOf="@+id/textView8"
+            android:text="0K" android:textSize="17sp" android:textColor="@color/liteblue" android:layout_marginLeft="10dip"/>
+
+        <TextView
+            android:id="@+id/leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView9"
+            android:layout_alignBottom="@+id/textView9"
+            android:layout_toRightOf="@+id/textView9"
+            android:text="30M"
+            android:textColor="@color/liteblue"
+            android:textSize="17sp" android:layout_marginLeft="10dip"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/RelativeLayout3"
+        android:text="今日流量"
+        android:textColor="@color/white" android:textSize="15sp" android:layout_marginLeft="20dip" android:layout_alignParentLeft="true" android:background="@color/liteblue"/>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:layout_below="@id/textView1">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2G/3G流量"
+            android:textSize="15sp" android:layout_marginLeft="20dip" android:layout_alignParentLeft="true" android:layout_marginBottom="5dip" android:layout_marginTop="10dip"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView2"
+            android:layout_marginLeft="20dip"
+            android:text="Wi-Fi流量"
+            android:textSize="15sp" android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/total_gprs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0K"
+            android:textColor="@color/liteblue"
+            android:textSize="17sp" android:layout_alignTop="@id/textView2" android:layout_alignParentRight="true" android:layout_marginRight="45dip"/>
+
+        <TextView
+            android:id="@+id/total_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0K"
+            android:textColor="@color/liteblue" android:textSize="17sp" android:layout_alignTop="@id/textView3" android:layout_alignParentRight="true" android:layout_marginRight="45dip"/>
+    </RelativeLayout>
+
+   
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView style="@style/title_text"
+        android:text="2.手机卡的绑定" />
+
+    <View style="@style/splitter_view"/>
+
+    <TextView style="@style/content_text"
+        android:text="一旦绑定sim卡\n下次重启手机如果sim卡变化，就发送报警短信到安全号码" />
+
+    <RelativeLayout style="@style/relativelayout"
+        android:id="@+id/rl_step2_bind"
+        android:background="@drawable/item_bg">
+        <TextView style="@style/content_text"
+            android:layout_gravity="left"
+            android:text="点击绑定sim卡" />
+        <ImageView
+            android:id="@+id/iv_step2_bind_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/switch_off_normal"/>
+    </RelativeLayout>
+
+    <!--显示四个步骤的第二步：居中-->
+    <LinearLayout style="@style/horizontal_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_enable_image" />
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_disable_image" />
+    </LinearLayout>
+
+    <!--显示一个大图标：居中-->
+    <ImageView style="@style/center_icon_image"
+        android:src="@drawable/bind"/>
+
+    <RelativeLayout style="@style/relativelayout">
+        <Button style="@style/prev_button" />
+        <Button style="@style/next_button" />
+    </RelativeLayout>
+
+</LinearLayout>

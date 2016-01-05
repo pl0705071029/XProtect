@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView style="@style/title_text"
+        android:text="1.欢迎使用手机防盗" />
+
+    <View style="@style/splitter_view"/>
+
+    <TextView style="@style/content_text"
+        android:text="您的手机防盗卫士：" />
+
+    <LinearLayout style="@style/horizontal_linearlayout">
+        <ImageView style="@style/text_start_image" />
+        <TextView style="@style/content_withimage_text" android:text="sim卡变更报警" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/horizontal_linearlayout">
+        <ImageView style="@style/text_start_image" />
+        <TextView style="@style/content_withimage_text" android:text="GPS追踪" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/horizontal_linearlayout">
+        <ImageView style="@style/text_start_image" />
+        <TextView style="@style/content_withimage_text" android:text="远程数据销毁" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/horizontal_linearlayout">
+        <ImageView style="@style/text_start_image" />
+        <TextView style="@style/content_withimage_text" android:text="远程锁屏" />
+    </LinearLayout>
+
+    <!--显示四个步骤的第一步：居中-->
+    <LinearLayout style="@style/horizontal_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
+        <ImageView style="@style/dot_enable_image" />
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_disable_image" />
+        <ImageView style="@style/dot_disable_image" />
+    </LinearLayout>
+
+    <!--显示一个大图标：居中-->
+    <ImageView style="@style/center_icon_image"
+        android:src="@drawable/setup1"/>
+
+    <Button style="@style/next_button" />
+
+</LinearLayout>
