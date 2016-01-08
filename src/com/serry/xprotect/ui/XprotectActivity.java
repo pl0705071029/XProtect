@@ -19,28 +19,29 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.os.Build;
 
 public class XprotectActivity extends Activity implements OnClickListener {
 
-	private ImageView phone_accelarate;
-	private ImageView permision_management;
-	private ImageView flow_management;
-	private ImageView phone_clean;
-	private ImageView harass_intercept;
-	private ImageView virus_cleaning;
+	private TextView phone_accelarate;
+	private TextView permision_management;
+	private TextView flow_management;
+	private TextView phone_clean;
+	private TextView harass_intercept;
+	private TextView virus_cleaning;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		phone_accelarate = (ImageView) findViewById(R.id.phone_accelarate);
-		permision_management = (ImageView) findViewById(R.id.permision_management);
-		flow_management = (ImageView) findViewById(R.id.flow_management);
-		phone_clean = (ImageView) findViewById(R.id.phone_clean);
-		harass_intercept = (ImageView) findViewById(R.id.harass_intercept);
-		virus_cleaning = (ImageView) findViewById(R.id.virus_cleaning);
+		phone_accelarate = (TextView) findViewById(R.id.phone_accelarate);
+		permision_management = (TextView) findViewById(R.id.permision_management);
+		flow_management = (TextView) findViewById(R.id.flow_management);
+		phone_clean = (TextView) findViewById(R.id.theft_proof);
+		harass_intercept = (TextView) findViewById(R.id.harass_intercept);
+		virus_cleaning = (TextView) findViewById(R.id.virus_cleaning);
 
 		phone_accelarate.setOnClickListener(this);
 		permision_management.setOnClickListener(this);
@@ -68,7 +69,7 @@ public class XprotectActivity extends Activity implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.phone_accelarate:
-			startActivity(new Intent(XprotectActivity.this, AppTaskProgressActivity.class));
+			startActivity(new Intent(XprotectActivity.this, PhoneAccelarateActivity.class));
 			break;
 		case R.id.permision_management:
 			startActivity(new Intent(XprotectActivity.this, ActivityMain.class));
@@ -76,7 +77,7 @@ public class XprotectActivity extends Activity implements OnClickListener {
 		case R.id.flow_management:
 			startActivity(new Intent(XprotectActivity.this, FlowManagement.class));
 			break;
-		case R.id.phone_clean:
+		case R.id.theft_proof:
 			startActivity(new Intent(XprotectActivity.this, LostProtectedActivity.class));
 			break;
 		case R.id.harass_intercept:

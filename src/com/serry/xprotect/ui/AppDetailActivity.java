@@ -3,18 +3,16 @@ package com.serry.xprotect.ui;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-import com.serry.xprotect.ApplicationEx;
-import com.serry.xprotect.R;
-import com.serry.xprotect.R.id;
-import com.serry.xprotect.R.layout;
-import com.serry.xprotect.data.TaskInfo;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import com.serry.xprotect.ApplicationEx;
+import com.serry.xprotect.R;
+import com.serry.xprotect.data.TaskInfo;
 
 public class AppDetailActivity extends Activity {
 

@@ -5,32 +5,38 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/first"
         android:layout_above="@+id/second"
         android:orientation="horizontal" >
 
-        <ImageView
+        <TextView
             android:id="@+id/phone_accelarate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/phone_accelarate" />
+            android:drawableTop="@drawable/phone_accelarate"
+            android:gravity="center"
+            android:text="@string/phone_accelarate" />
 
-        <ImageView
+        <TextView
             android:id="@+id/permision_management"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/permision_management" />
+            android:drawableTop="@drawable/permision_management"
+            android:gravity="center"
+            android:text="@string/permision_management" />
 
-        <ImageView
+        <TextView
             android:id="@+id/flow_management"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/flow_management" />
+            android:drawableTop="@drawable/flow_management"
+            android:gravity="center"
+            android:text="@string/flow_management" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,28 +44,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingBottom="10dp" >
 
-        <ImageView
-            android:id="@+id/phone_clean"
+        <TextView
+            android:id="@+id/theft_proof"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/phone_clean" />
+            android:drawableTop="@drawable/phone_clean"
+            android:gravity="center"
+            android:text="@string/theft_proof" />
 
-        <ImageView
+        <TextView
             android:id="@+id/harass_intercept"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/harass_intercept" />
+            android:drawableTop="@drawable/harass_intercept"
+            android:gravity="center"
+            android:text="@string/harass_intercept" />
 
-        <ImageView
+        <TextView
             android:id="@+id/virus_cleaning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:src="@drawable/virus_cleaning" />
+            android:drawableTop="@drawable/virus_cleaning"
+            android:gravity="center"
+            android:text="@string/virus_cleaning" />
     </LinearLayout>
 
 </RelativeLayout>

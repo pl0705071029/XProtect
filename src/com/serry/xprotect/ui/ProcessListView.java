@@ -10,25 +10,25 @@ import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.ListView;
 
-public class MyListView extends ListView {
+public class ProcessListView extends ListView {
 	private Context context;
 	private boolean outBound = false;
 	private int distance;
 	private int firstOut;
 
-	public MyListView(Context context, AttributeSet attrs) {
+	public ProcessListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		this.context = context;
 
 	}
 
-	public MyListView(Context context, AttributeSet attrs, int defStyle) {
+	public ProcessListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		this.context = context;
 
 	}
 
-	public MyListView(Context context) {
+	public ProcessListView(Context context) {
 		super(context);
 		this.context = context;
 

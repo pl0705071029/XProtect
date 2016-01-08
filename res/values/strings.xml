@@ -259,7 +259,15 @@ however it is impossible to guarantee it will work flawlessly on each and every 
     <string name="permission_manage">Manage applications, including killing</string>
     <string name="permission_restrictions">Manage XPrivacy restrictions and settings</string>
     <string name="fingerprint" translatable="false">10620ae961d78854f6c9cd872c4388232849c799</string>
-
     <string name="first">hello</string>
     <string name="second">lo</string>
+    <string name="phone_accelarate">手机加速</string>
+    <string name="permision_management">权限管理</string>
+    <string name="flow_management">流量管理</string>
+    <string name="theft_proof">手机防盗</string>
+    <string name="harass_intercept">骚扰拦截</string>
+    <string name="virus_cleaning">病毒查杀</string>
+    <string name="immediate_acceleration">立即加速</string>
+    <string name="load_app">正在加载应用程序</string>
+
 </resources>

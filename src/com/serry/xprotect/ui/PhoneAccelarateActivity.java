@@ -42,7 +42,7 @@ import android.widget.TextView;
  * @author Administrator
  * 
  */
-public class AppTaskProgressActivity extends Activity {
+public class PhoneAccelarateActivity extends Activity {
 	protected static final int APPPROGRESSFINISH = 24;
 	private TextView tv_progress_size = null;
 	private TextView tv_progress_count = null;
@@ -55,7 +55,6 @@ public class AppTaskProgressActivity extends Activity {
 	private MyAppTaskProgressDapter adapter = null;
 	private List<TaskInfo> usertaskinfos;
 	private List<TaskInfo> systemtaskinfos;
-	private SharedPreferences sp = null;
 	private Handler handler = new Handler() {
 
 		@Override
@@ -80,12 +79,11 @@ public class AppTaskProgressActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.app_task_progress);
+		setContentView(R.layout.phone_accelarate);
 		tv_progress_count = (TextView) findViewById(R.id.tv_progress_count);
 		tv_progress_size = (TextView) findViewById(R.id.tv_progress_size);
 		ll_app_manager_loading = (LinearLayout) findViewById(R.id.ll_app_manager_loading);
 		lv_app_manager = (ListView) findViewById(R.id.lv_app_manager);
-		sp = getSharedPreferences("config", Context.MODE_PRIVATE);
 		am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
 		infos = new TaskInfoProvider(this);
 		getProcessCount();
@@ -99,13 +97,7 @@ public class AppTaskProgressActivity extends Activity {
 
 				if (obj instanceof TaskInfo) {
 					TaskInfo taskInfo = (TaskInfo) obj;
-					String packname = taskInfo.getPackname();
 					CheckBox cb = (CheckBox) view.findViewById(R.id.cb_task_checked);
-					if ("cn.itcast.mobilesafe".equals(packname) || "system".equals(packname)
-							|| "android.process.media".equals(packname)) {
-						cb.setVisibility(View.INVISIBLE);
-						return;
-					}
 					if (taskInfo.isIschecked()) {
 						taskInfo.setIschecked(false);
 						cb.setChecked(false);
@@ -120,7 +112,7 @@ public class AppTaskProgressActivity extends Activity {
 		lv_app_manager.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-				Intent intent = new Intent(AppTaskProgressActivity.this, AppDetailActivity.class);
+				Intent intent = new Intent(PhoneAccelarateActivity.this, AppDetailActivity.class);
 				ApplicationEx app = (ApplicationEx) getApplication();
 				Object obj = lv_app_manager.getItemAtPosition(position);
 				if (obj instanceof TaskInfo) {
@@ -182,14 +174,6 @@ public class AppTaskProgressActivity extends Activity {
 		MemoryInfo outInfo = new ActivityManager.MemoryInfo();
 		am.getMemoryInfo(outInfo);
 		return outInfo.availMem;
-	}
-
-	/**
-	 * 进程设置
-	 */
-	public void appSetting(View view) {
-		Intent intent = new Intent(this, AppProgressManager.class);
-		startActivityForResult(intent, 0);
 	}
 
 	/**
@@ -275,12 +259,7 @@ public class AppTaskProgressActivity extends Activity {
 
 		public int getCount() {
 			// TODO Auto-generated method stub
-			boolean showsystem = sp.getBoolean("showsystem", false);
-			if (showsystem) {
-				return taskInfos.size() + 2;
-			} else {
-				return usertaskinfos.size() + 1;
-			}
+			return taskInfos.size() + 2;
 
 		}
 
@@ -315,54 +294,38 @@ public class AppTaskProgressActivity extends Activity {
 
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (position == 0) {
-				TextView tv_userapp = new TextView(AppTaskProgressActivity.this);
+				TextView tv_userapp = new TextView(PhoneAccelarateActivity.this);
 				tv_userapp.setText("用户进程 " + usertaskinfos.size() + "个");
 				return tv_userapp;
 			} else if (position <= usertaskinfos.size()) {
 				int currentpositon = (position - 1);
 				TaskInfo taskinfo = usertaskinfos.get(currentpositon);
-				View view = View.inflate(AppTaskProgressActivity.this, R.layout.task_manager_item, null);
+				View view = View.inflate(PhoneAccelarateActivity.this, R.layout.task_manager_item, null);
 				// ViewHolder holder = new ViewHolder();
 				ImageView iv_app_icon = (ImageView) view.findViewById(R.id.iv_app_icon);
 				TextView tv_app_name = (TextView) view.findViewById(R.id.tv_app_name);
 				TextView tv_app_memory_size = (TextView) view.findViewById(R.id.tv_app_memory_size);
 				CheckBox cb_task_checked = (CheckBox) view.findViewById(R.id.cb_task_checked);
-				String packname = taskinfo.getPackname();
-				if ("cn.itcast.mobilesafe".equals(packname) || "system".equals(packname)
-						|| "android.process.media".equals(packname)) {
-					cb_task_checked.setVisibility(View.INVISIBLE);
-
-				} else {
-					cb_task_checked.setVisibility(View.VISIBLE);
-				}
 				iv_app_icon.setImageDrawable(taskinfo.getAppicon());
 				tv_app_name.setText(taskinfo.getAppname());
-				tv_app_memory_size.setText("内存占用: " + TextFormater.getKBDataSize(taskinfo.getMemorysize()));
+				tv_app_memory_size.setText(TextFormater.getKBDataSize(taskinfo.getMemorysize()));
 				cb_task_checked.setChecked(taskinfo.isIschecked());
 				return view;
 
 			} else if (position == usertaskinfos.size() + 1) {
-				TextView tv_systemapp = new TextView(AppTaskProgressActivity.this);
+				TextView tv_systemapp = new TextView(PhoneAccelarateActivity.this);
 				tv_systemapp.setText("系统进程 " + systemtaskinfos.size() + "个");
 				return tv_systemapp;
 
 			} else if (position <= taskInfos.size() + 2) {
 				int systemposition = (position - usertaskinfos.size() - 2);
 				TaskInfo taskinfo = systemtaskinfos.get(systemposition);
-				View view = View.inflate(AppTaskProgressActivity.this, R.layout.task_manager_item, null);
+				View view = View.inflate(PhoneAccelarateActivity.this, R.layout.task_manager_item, null);
 				// ViewHolder holder = new ViewHolder();
 				ImageView iv_app_icon = (ImageView) view.findViewById(R.id.iv_app_icon);
 				TextView tv_app_name = (TextView) view.findViewById(R.id.tv_app_name);
 				TextView tv_app_memory_size = (TextView) view.findViewById(R.id.tv_app_memory_size);
 				CheckBox cb_task_checked = (CheckBox) view.findViewById(R.id.cb_task_checked);
-				String packname = taskinfo.getPackname();
-				if ("cn.itcast.mobilesafe".equals(packname) || "system".equals(packname)
-						|| "android.process.media".equals(packname)) {
-					cb_task_checked.setVisibility(View.INVISIBLE);
-
-				} else {
-					cb_task_checked.setVisibility(View.VISIBLE);
-				}
 				iv_app_icon.setImageDrawable(taskinfo.getAppicon());
 				tv_app_name.setText(taskinfo.getAppname());
 				tv_app_memory_size.setText("内存占用: " + TextFormater.getKBDataSize(taskinfo.getMemorysize()));
@@ -372,22 +335,7 @@ public class AppTaskProgressActivity extends Activity {
 			} else {// 肯定不会执行
 				return null;
 			}
-			/*
-			 * View view = null; if(view==null){ view =
-			 * View.inflate(AppTaskProgressActivity.this,
-			 * R.layout.task_manager_item, null); }else{ view = convertView; }
-			 * ImageView iv_app_icon = (ImageView)
-			 * view.findViewById(R.id.iv_app_icon); TextView tv_app_memory_size
-			 * = (TextView) view.findViewById(R.id.tv_app_memory_size); TextView
-			 * tv_app_name = (TextView) view.findViewById(R.id.tv_app_name);
-			 * 
-			 * iv_app_icon.setImageDrawable(taskInfos.get(position).getAppicon())
-			 * ;
-			 * tv_app_memory_size.setText("内存大小 : "+TextFormater.getKBDataSize(
-			 * taskInfos.get(position).getMemorysize()));
-			 * tv_app_name.setText(taskInfos.get(position).getAppname());
-			 */
-			// return null;
+
 		}
 
 	}

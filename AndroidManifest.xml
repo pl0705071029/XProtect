@@ -74,7 +74,8 @@
 
         <activity
             android:name="com.serry.xprotect.ui.XprotectActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -190,9 +191,7 @@
             </intent-filter>
         </service>
 
-        <activity android:name="com.serry.xprotect.ui.AppTaskProgressActivity" >
-        </activity>
-        <activity android:name="com.serry.xprotect.ui.AppProgressManager" >
+        <activity android:name="com.serry.xprotect.ui.PhoneAccelarateActivity" >
         </activity>
         <activity android:name="com.serry.xprotect.ui.AppDetailActivity" >
         </activity>

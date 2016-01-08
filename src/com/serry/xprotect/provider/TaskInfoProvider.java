@@ -3,10 +3,6 @@ package com.serry.xprotect.provider;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.serry.xprotect.R;
-import com.serry.xprotect.R.drawable;
-import com.serry.xprotect.data.TaskInfo;
-
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
@@ -14,6 +10,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Debug.MemoryInfo;
+
+import com.serry.xprotect.R;
+import com.serry.xprotect.data.TaskInfo;
 
 public class TaskInfoProvider {
 	private Context context = null;
@@ -37,6 +36,12 @@ public class TaskInfoProvider {
 				int pid = info.pid;
 				taskInfo.setPid(pid);
 				String packname = info.processName;
+				if (packname == null || packname.contains(context.getPackageName()) || packname.equals("system")
+						|| packname.equals("android.process.media") || packname.equals("com.android.update.dmp")
+						|| packname.equals("com.android.defcontainer") || packname.equals("com.android.systemui")
+						|| packname.equals("com.android.settings")) {
+					continue;
+				}
 				taskInfo.setPackname(packname);
 				ApplicationInfo appinfo = pm.getPackageInfo(packname, 0).applicationInfo;
 				Drawable appicon = appinfo.loadIcon(pm);
