@@ -63,10 +63,12 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/acceleration_button"
             android:layout_width="match_parent"
             android:background="#ff999999"
             android:layout_height="wrap_content"
             android:onClick="killTask"
+            android:enabled="false"
             android:text="@string/immediate_acceleration" />
     </LinearLayout>
 

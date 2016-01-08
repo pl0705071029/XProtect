@@ -5,22 +5,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.serry.xprotect.ApplicationEx;
-import com.serry.xprotect.R;
-import com.serry.xprotect.R.drawable;
-import com.serry.xprotect.R.id;
-import com.serry.xprotect.R.layout;
-import com.serry.xprotect.data.TaskInfo;
-import com.serry.xprotect.provider.TaskInfoProvider;
-import com.serry.xprotect.utils.TextFormater;
-
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
 import android.app.ActivityManager.RunningAppProcessInfo;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -30,11 +19,18 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.serry.xprotect.ApplicationEx;
+import com.serry.xprotect.R;
+import com.serry.xprotect.data.TaskInfo;
+import com.serry.xprotect.provider.TaskInfoProvider;
+import com.serry.xprotect.utils.TextFormater;
 
 /**
  * 进程管理
@@ -46,6 +42,7 @@ public class PhoneAccelarateActivity extends Activity {
 	protected static final int APPPROGRESSFINISH = 24;
 	private TextView tv_progress_size = null;
 	private TextView tv_progress_count = null;
+	private Button accelerationButton = null;
 	private ActivityManager am = null;
 	private LinearLayout ll_app_manager_loading = null;
 	private List<RunningAppProcessInfo> runingappinfos;
@@ -55,6 +52,7 @@ public class PhoneAccelarateActivity extends Activity {
 	private MyAppTaskProgressDapter adapter = null;
 	private List<TaskInfo> usertaskinfos;
 	private List<TaskInfo> systemtaskinfos;
+	private List<Object> checkedTask = new ArrayList<>();
 	private Handler handler = new Handler() {
 
 		@Override
@@ -82,6 +80,7 @@ public class PhoneAccelarateActivity extends Activity {
 		setContentView(R.layout.phone_accelarate);
 		tv_progress_count = (TextView) findViewById(R.id.tv_progress_count);
 		tv_progress_size = (TextView) findViewById(R.id.tv_progress_size);
+		accelerationButton = (Button) findViewById(R.id.acceleration_button);
 		ll_app_manager_loading = (LinearLayout) findViewById(R.id.ll_app_manager_loading);
 		lv_app_manager = (ListView) findViewById(R.id.lv_app_manager);
 		am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
@@ -94,6 +93,18 @@ public class PhoneAccelarateActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				// TODO Auto-generated method stub
 				Object obj = lv_app_manager.getItemAtPosition(position);
+				if (checkedTask.contains(obj)) {
+					checkedTask.remove(obj);
+				} else {
+					checkedTask.add(obj);
+				}
+				
+				accelerationButton.setText(R.string.immediate_acceleration);
+				if (checkedTask.size() > 0) {
+					accelerationButton.setEnabled(true);
+				} else {
+					accelerationButton.setEnabled(false);
+				}
 
 				if (obj instanceof TaskInfo) {
 					TaskInfo taskInfo = (TaskInfo) obj;
@@ -232,9 +243,9 @@ public class PhoneAccelarateActivity extends Activity {
 
 		// 通知用户杀死了多少个进程
 		String size = TextFormater.getKBDataSize(memorysize);
-		// Toast.makeText(this, "杀死了"+total+"个进程,释放了"+size+"空间", 0).show();
-		MyToast.showToast(this, R.drawable.main_icon_36, "杀死了" + total + "个进程,释放了" + size + "空间");
 		// 通知ui更新
+		accelerationButton.setText("杀死了" + total + "个进程,释放了" + size + "空间");
+		checkedTask.clear();
 		adapter = new MyAppTaskProgressDapter();
 		lv_app_manager.setAdapter(adapter);
 		// fillData();
