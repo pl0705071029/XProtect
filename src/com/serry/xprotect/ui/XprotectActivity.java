@@ -84,7 +84,7 @@ public class XprotectActivity extends Activity implements OnClickListener {
 
 			break;
 		case R.id.virus_cleaning:
-			startActivity(new Intent(XprotectActivity.this, AntiVirusActivity.class));
+			startActivity(new Intent(XprotectActivity.this, VirusKillActivity.class));
 			break;
 
 		default:

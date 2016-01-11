@@ -269,5 +269,12 @@ however it is impossible to guarantee it will work flawlessly on each and every 
     <string name="virus_cleaning">病毒查杀</string>
     <string name="immediate_acceleration">立即加速</string>
     <string name="load_app">正在加载应用程序</string>
+    <string name="scan_and_kill_virus">查杀病毒</string>
+    <string name="kill_virus">一键清理</string>
+    <string name="finish">完成</string>
+    <string name="no_virus_message">扫描完毕,你的手机很安全</string>
+    <string name="scan_danger">扫描 %1$s 危险</string>
+    <string name="scan_safe">扫描 %1$s 安全</string>
+    <string name="scan_status">扫描状态</string>
 
 </resources>

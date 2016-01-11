@@ -222,7 +222,7 @@
         </receiver>
 
         <activity
-            android:name="com.serry.xprotect.ui.AntiVirusActivity"
+            android:name="com.serry.xprotect.ui.VirusKillActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity android:name="com.serry.xprotect.ui.LostProtectedActivity" />

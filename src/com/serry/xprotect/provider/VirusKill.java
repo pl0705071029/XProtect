@@ -1,4 +1,4 @@
-package com.serry.xprotect.transaction;
+package com.serry.xprotect.provider;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,12 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 /**
  * Created by sing on 14-1-26. desc:
  */
-public class AntiVirusDao {
-	private static final String TAG = "AntiVirusDao";
+public class VirusKill {
+	private static final String TAG = "VirusKill";
 
 	private Context context;
 
-	public AntiVirusDao(Context context) {
+	public VirusKill(Context context) {
 		this.context = context;
 	}
 
