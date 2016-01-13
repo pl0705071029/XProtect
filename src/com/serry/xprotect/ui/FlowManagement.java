@@ -57,7 +57,6 @@ public class FlowManagement extends Activity {
 	private Adapter list_adapter;
 	private List<AppInfo> appInfos;
 	private FlowService mservice;
-	private RadioGroup group;
 	private Boolean mBound = false;
 	private Boolean mClick = false;
 	private int x = 0;
@@ -111,14 +110,13 @@ public class FlowManagement extends Activity {
 		animation2 = AnimationUtils.loadAnimation(this, R.anim.slide_right_out);
 		mon_setting = (ImageView) findViewById(R.id.mon_setting);
 		image_row = (ImageView) findViewById(R.id.mon_image_row);
-		image_row.getBackground().setAlpha(100);
-		group = (RadioGroup) findViewById(R.id.radioGroup1);
+		// image_row.getBackground().setAlpha(100);
 		mInflater = getLayoutInflater();
 		// 抽取出view，方便添加，方便响应
 		vTotal = mInflater.inflate(R.layout.total, null);
 		vApp = mInflater.inflate(R.layout.app, null);
 		mListViews = new ArrayList<View>();
-		mListViews.add(vTotal);
+		// mListViews.add(vTotal);
 		mListViews.add(vApp);
 		// viewpager 的滑动
 		adapter = new ViewPagerAdapter(mListViews);
@@ -129,18 +127,6 @@ public class FlowManagement extends Activity {
 			@Override
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
-				if (arg0 == 1) {
-					mClick = false;
-					RadioButton rb = (RadioButton) group.getChildAt(arg0);
-					rb.setChecked(true);
-					mon_setting.setBackgroundResource(R.color.red);
-
-				} else {
-					mClick = true;
-					RadioButton rb = (RadioButton) group.getChildAt(arg0);
-					rb.setChecked(true);
-					mon_setting.setBackgroundResource(R.color.liteblue);
-				}
 			}
 
 			@Override
@@ -153,23 +139,6 @@ public class FlowManagement extends Activity {
 			public void onPageScrollStateChanged(int arg0) {
 				// TODO Auto-generated method stub
 
-			}
-		});
-		group.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				// TODO Auto-generated method stub
-
-				if (checkedId == R.id.radio0) {
-					idx = 0;
-
-				} else if (checkedId == R.id.radio1) {
-					idx = 1;
-				} else {
-					return;
-				}
-				viewPager.setCurrentItem(idx);
 			}
 		});
 		// 启动服务

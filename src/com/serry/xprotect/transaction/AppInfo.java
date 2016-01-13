@@ -13,7 +13,6 @@ public class AppInfo {
 		this.app_package = app_package;
 	}
 
-
 	//图标
 	private  Drawable app_icon;
 	//名字

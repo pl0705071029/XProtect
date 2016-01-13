@@ -58,7 +58,7 @@ public class FlowService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
 		infos = packageInfo.getRunningProcess();
-		Log.v("helsha", "2");
+		Log.v("serry", "2");
 		return super.onStartCommand(intent, flags, START_STICKY);
 	}
 
@@ -86,7 +86,7 @@ public class FlowService extends Service {
 		int a = 0, b = 1024, c = 1048576;
 		;
 
-		Log.v("hells", lg + "");
+		Log.v("serry", lg + "");
 		if (lg < 1024) {
 			str = "0K";
 		} else if (lg >= b && lg < c) {
